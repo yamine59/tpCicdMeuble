@@ -16,7 +16,7 @@ public class CartController {
     private final CartService cartService;
     private final FurnitureService furnitureService;
 
-    public CartController(CartService cartService) {
+    public CartController(CartService cartService ,FurnitureService furnitureService) {
         this.cartService = cartService;
         this.furnitureService = furnitureService;
 
