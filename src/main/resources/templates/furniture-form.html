@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/furniture/add}" th:object="${furniture}" method="post">
+    <table>
+        <tr>
+            <th><label for="name">Name: </label></th>
+            <td><input type="text" th:field="*{name}" id="name" placeholder="name"></td>
+        </tr>
+        <tr>
+            <th><label for="price">Price: </label></th>
+            <td><input type="text" th:field="*{price}" id="price" placeholder="price"></td>
+        </tr>
+        <tr>
+            <th><label for="description">Description: </label></th>
+            <td><input type="text" th:field="*{description}" id="description" placeholder="description"></td>
+        </tr>
+        <tr>
+            <th><label for="stock">Stock: </label></th>
+            <td><input type="text" th:field="*{stock}" id="stock" placeholder="stock"></td>
+        </tr>
+    </table>
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>

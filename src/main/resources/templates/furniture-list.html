@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Liste des meubles</h1>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+    .table td, .table th {
+        vertical-align: middle;
+    }
+</style>
+<div class="container">
+    <h1 class="text-center">Liste des meubles</h1>
+
+    <table class="table">
+        <tr th:each="furniture : ${furnitures}">
+            <td th:text="${furniture.name}"></td>
+            <td th:text="${furniture.description}"></td>
+            <td th:text="${furniture.price}"></td>
+            <td th:text="${furniture.stock}"></td>
+            <td><a class="btn btn-info" th:href="@{/furniture/update/{id}(id=${furniture.idFurniture})}">Modifier</a></td>
+            <td><a class="btn btn-danger" th:href="@{/furniture/delete/{id}(id=${furniture.idFurniture})}">Supprimer</a></td>
+            <td>
+                <form class="form-inline" th:action="@{/cart/add}" th:object="${cart}" method="post">
+                    <input type="hidden" name="furniture" th:value="${furniture}">
+                    <input type="number" th:field="*{quantity}" class="form-control" placeholder="quantit ">
+                    <button type="submit" class="btn btn-success">ajouter au panier</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
